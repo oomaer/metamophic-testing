@@ -3,8 +3,7 @@ import random
 class ClientA(NetworkParty):
     def __init__(self):
         super().__init__(
-            ownership=Ownership.FANDANGO_PARTY,
-            endpoint_type=EndpointType.CONNECT,
+            connection_mode=ConnectionMode.CONNECT,
             uri=f"tcp://localhost:{3000}"
         )
         self.start()
@@ -15,8 +14,7 @@ class ClientA(NetworkParty):
 class ServerA(NetworkParty):
     def __init__(self):
         super().__init__(
-            ownership=Ownership.EXTERNAL_PARTY,
-            endpoint_type=EndpointType.OPEN,
+            connection_mode=ConnectionMode.EXTERNAL,
             uri=f"tcp://localhost:{3000}"
         )
         self.start()
@@ -27,8 +25,7 @@ class ServerA(NetworkParty):
 class ClientB(NetworkParty):
     def __init__(self):
         super().__init__(
-            ownership=Ownership.FANDANGO_PARTY,
-            endpoint_type=EndpointType.CONNECT,
+            connection_mode=ConnectionMode.CONNECT,
             uri=f"tcp://localhost:{3001}"
         )
         self.start()
@@ -39,15 +36,14 @@ class ClientB(NetworkParty):
 class ServerB(NetworkParty):
     def __init__(self):
         super().__init__(
-            ownership=Ownership.EXTERNAL_PARTY,
-            endpoint_type=EndpointType.OPEN,
+            connection_mode=ConnectionMode.EXTERNAL,
             uri=f"tcp://localhost:{3001}"
         )
         self.start()
 
     def receive(self, message: str | bytes, sender: Optional[str]) -> None:
         super().receive(message, "ClientB")
-        
+
 
 def get_random_header_order() -> str:
     headers = [
@@ -59,16 +55,18 @@ def get_random_header_order() -> str:
     return ''.join(headers)
 
 #!grammer
-<start> ::= <ClientA:ServerA:get_request_A> <ServerA:ClientA:response1> <ClientB:ServerB:get_request_B> <ServerB:ClientB:response2> 
+<start> ::= <ClientA:ServerA:get_request_A> <ServerA:ClientA:response1> <ClientB:ServerB:get_request_B> <ServerB:ClientB:response2>
 
 <get_request_A> ::= "GET / HTTP/1.1" <line_end> <headers_order_1> <line_end>
 <get_request_B> ::= "GET / HTTP/1.1" <line_end> <headers_order_2> <line_end>
 
 <line_end> ::= "\r\n"
 
-<headers_order_1> ::= <headers> := get_random_header_order()
-<headers_order_2> ::= <headers> := get_random_header_order()
-<headers> ::= r"([\w-]+: .*\r\n)*"
+<headers_order_1> ::= ->header_order_1
+<headers_order_2> ::= ->header_order_2
+# <headers_order_1> ::= <headers> := get_random_header_order()
+# <headers_order_2> ::= <headers> := get_random_header_order()
+# <headers> ::= r"([\w-]+: .*\r\n)*"
 
 
 <response2> ::= <status_line> <headers_resp> "\r\n" <chunked_body>
@@ -87,4 +85,3 @@ where is_equivalent(<response1>, <response2>) == True
 
 def is_equivalent(resp1: DerivationTree, resp2: DerivationTree) -> bool:
     return resp1.to_string().strip() == resp2.to_string().strip()
-    
