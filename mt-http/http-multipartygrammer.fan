@@ -1,69 +1,25 @@
-from typing import Optional
-import random
-class ClientA(NetworkParty):
-    def __init__(self):
-        super().__init__(
-            connection_mode=ConnectionMode.CONNECT,
-            uri=f"tcp://localhost:{3000}"
-        )
-        self.start()
 
-    def receive(self, message: str | bytes, sender: Optional[str]) -> None:
-        super().receive(message, "ServerA")
+include ("http-grammer-utils.fan")
 
-class ServerA(NetworkParty):
-    def __init__(self):
-        super().__init__(
-            connection_mode=ConnectionMode.EXTERNAL,
-            uri=f"tcp://localhost:{3000}"
-        )
-        self.start()
-
-    def receive(self, message: str | bytes, sender: Optional[str]) -> None:
-        super().receive(message, "ClientA")
-
-class ClientB(NetworkParty):
-    def __init__(self):
-        super().__init__(
-            connection_mode=ConnectionMode.CONNECT,
-            uri=f"tcp://localhost:{3001}"
-        )
-        self.start()
-
-    def receive(self, message: str | bytes, sender: Optional[str]) -> None:
-        super().receive(message, "ServerB")
-
-class ServerB(NetworkParty):
-    def __init__(self):
-        super().__init__(
-            connection_mode=ConnectionMode.EXTERNAL,
-            uri=f"tcp://localhost:{3001}"
-        )
-        self.start()
-
-    def receive(self, message: str | bytes, sender: Optional[str]) -> None:
-        super().receive(message, "ClientB")
-
-
-def get_random_header_order() -> str:
-    headers = [
-        "Host: localhost\r\n",
-        "User-Agent: Fandango/1.0\r\n",
-        "Accept: */*\r\n"
-    ]
-    random.shuffle(headers)
-    return ''.join(headers)
 
 #!grammer
 <start> ::= <ClientA:ServerA:get_request_A> <ServerA:ClientA:response1> <ClientB:ServerB:get_request_B> <ServerB:ClientB:response2>
+
+# to gen header orders
+<header_order1> ::= <header_comp><header_comp>
+<header_order2> ::= <header_comp><header_comp>
+<header_comp> ::= (<header>) | (<header> <header_comp>)
+<header> ::=  "Host: localhost\r\n" | "User-Agent: Fandango/1.0\r\n" | "Accept: */*\r\n"
+where str(<header_order1>) == get_mutation(<header_order2>)
+where str(<header_order1>) != str(<header_order2>)
 
 <get_request_A> ::= "GET / HTTP/1.1" <line_end> <headers_order_1> <line_end>
 <get_request_B> ::= "GET / HTTP/1.1" <line_end> <headers_order_2> <line_end>
 
 <line_end> ::= "\r\n"
 
-<headers_order_1> ::= ->header_order_1
-<headers_order_2> ::= ->header_order_2
+<headers_order_1> ::= <header_order1>
+<headers_order_2> ::= <header_order2>
 # <headers_order_1> ::= <headers> := get_random_header_order()
 # <headers_order_2> ::= <headers> := get_random_header_order()
 # <headers> ::= r"([\w-]+: .*\r\n)*"
