@@ -1,54 +1,12 @@
-class ClientA(NetworkParty):
-    def __init__(self):
-        super().__init__(
-            connection_mode=ConnectionMode.CONNECT,
-            uri=f"tcp://localhost:{8025}"
-        )
-        self.start()
-
-    def receive(self, message: str | bytes, sender: Optional[str]) -> None:
-        super().receive(message, "ServerA")
-
-class ServerA(NetworkParty):
-    def __init__(self):
-        super().__init__(
-            connection_mode=ConnectionMode.EXTERNAL,
-            uri=f"tcp://localhost:{8025}"
-        )
-        self.start()
-
-    def receive(self, message: str | bytes, sender: Optional[str]) -> None:
-        super().receive(message, "ClientA")
-
-class ClientB(NetworkParty):
-    def __init__(self):
-        super().__init__(
-            connection_mode=ConnectionMode.CONNECT,
-            uri=f"tcp://localhost:{8026}"
-        )
-        self.start()
-
-    def receive(self, message: str | bytes, sender: Optional[str]) -> None:
-        super().receive(message, "ServerB")
-
-class ServerB(NetworkParty):
-    def __init__(self):
-        super().__init__(
-            connection_mode=ConnectionMode.EXTERNAL,
-            uri=f"tcp://localhost:{8026}"
-        )
-        self.start()
-
-    def receive(self, message: str | bytes, sender: Optional[str]) -> None:
-        super().receive(message, "ClientB")
-
-
+include ("smtp-utils.fan")
 
 <start> ::= <Interaction1> 
 
 # --- INTERACTION 1  
 <Interaction1> ::= <ServerA:banner> <CONN1>
-<CONN1> ::= <EHLO_ex1> <MAIL_ex1> <RCPT_ex1_A> <RCPT_ex1_B> <RCPT_ex1_C> <DATA_ex1> <QUIT_ex1>
+# <CONN1> ::= <EHLO_ex1> <MAIL_ex1> <RCPT_ex1_A> <RCPT_ex1_B> <RCPT_ex1_C> <DATA_ex1> <QUIT_ex1>
+<CONN1> ::= <EHLO_ex1> <QUIT_ex1>
+
 
 # --- INTERACTION 2 
 <Interaction2> ::= <ServerB:banner> <CONN2>
