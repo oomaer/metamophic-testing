@@ -108,22 +108,6 @@ def run_fandango(grammar_path):
 def main():
     recps = get_recipients()
     covert_recipients_to_grammar(recps)
-
-    # with open("http-multipartygrammer.fan") as f:
-    #     grammar, constraints = parse(f, use_stdlib=True)
-    # assert grammar is not None
-    # fandango = Fandango(
-    #     grammar=grammar,
-    #     constraints=constraints,
-    #     logger_level=LoggerLevel.INFO,
-    # )
-
-    # solutions = []
-    # for solution in fandango.generate(mode=FuzzingMode.IO):
-    #     print(str(solution))
-    #     print("-------------------------------------------------------------")
-    #     solutions.append(solution)
-
     
 
 main()
