@@ -34,7 +34,7 @@ current_run = 1
 
 def get_recipients():
     global total_grammers
-    with open("gen-recipients.fan") as f:
+    with open("/Users/i7949486/Downloads/docker/metamorphic-testing/mt-smtp/gen-recipients.fan") as f:
         grammar, constraints = parse(f, use_stdlib=True)
     assert grammar is not None
     fandango = Fandango(
@@ -54,6 +54,8 @@ def get_recipients():
 
         recipients.append((recp_list_1, recp_list_2))
 
+
+    recipients = recipients[:4] # limit to 5 runs for now
     total_grammers = len(recipients)
     return recipients
 
@@ -62,7 +64,7 @@ def get_recipients():
 
 def covert_recipients_to_grammar(recipients):
 
-    with open("smtp-with-auth.fan") as f:
+    with open("/Users/i7949486/Downloads/docker/metamorphic-testing/mt-smtp/smtp-with-auth.fan") as f:
         grammar_str_orignal = f.read()
 
    
@@ -89,12 +91,14 @@ def covert_recipients_to_grammar(recipients):
         with tempfile.NamedTemporaryFile(delete=False, suffix=".fan", dir=temp_dir) as tmp_file:
             tmp_file.write(grammar_str.encode())
             tmp_file_path = tmp_file.name
-            run_fandango(tmp_file_path)
+        # run_fandango(tmp_file_path)
+        run_fandango_from_cmd(tmp_file_path)
 
         
  
 def run_fandango(grammar_path):
     global current_run
+    fandango = None
     print(f" ---------------------------------Curernt run: {current_run}, Total grammers: {total_grammers} --------------------------------")
     print("-------------------------------------------------------------")
     print("-------------------------------------------------------------")
@@ -107,15 +111,34 @@ def run_fandango(grammar_path):
         constraints=constraints,
         logger_level=LoggerLevel.INFO,
     )
-    for solution in fandango.generate(mode=FuzzingMode.IO):
+    solutions = fandango.generate(mode=FuzzingMode.IO)
+    for solution in solutions:
         print(str(solution))
         print("-------------------------------------------------------------")
     
     current_run += 1
-    # os._exit(0)
 
+
+
+def run_fandango_from_cmd(grammar_path):
+    global current_run
+    print(f" ---------------------------------Curernt run: {current_run}, Total grammers: {total_grammers} --------------------------------")
+    print("-------------------------------------------------------------")
+    print("-------------------------------------------------------------")
+    process = subprocess.Popen(
+        ['fandango', '-v', 'talk', '-f', grammar_path, '-n', '1'],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        bufsize=1
+    )
     
-
+    for line in process.stdout:
+        print(line, end='', flush=True)
+    
+    process.wait()
+    print(f"Return code: {process.returncode}")
+    current_run += 1
 
 
 def main():
@@ -124,6 +147,7 @@ def main():
     
 
 main()
+
 
 
 

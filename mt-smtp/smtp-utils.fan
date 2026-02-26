@@ -57,11 +57,12 @@ class DummyParty(NetworkParty):
 
 
     def send(self, message: str | bytes, recipient: Optional[str]) -> None:
-        print("DummyParty sending:", message, "to", recipient)   
-        ClientA.instance().stop()
-        ServerA.instance().stop()
-        ClientB.instance().start()
-        ServerB.instance().start()
+        if message == "changing connection\r\n":
+            print("changing connection")
+            ClientA.instance().stop()
+            ServerA.instance().stop()
+            ClientB.instance().start()
+            ServerB.instance().start()
 
     def start(self):
         pass
