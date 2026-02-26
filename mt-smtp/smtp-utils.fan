@@ -1,3 +1,8 @@
+from typing import Optional
+
+from fandango.io import ConnectionMode
+
+
 class ClientA(NetworkParty):
     def __init__(self):
         self.serverName = "ServerA"
@@ -36,11 +41,33 @@ class ServerB(NetworkParty):
     def __init__(self):
         super().__init__(
             connection_mode=ConnectionMode.EXTERNAL,
-            uri=f"tcp://127.0.0.1:{8027}"
+            uri=f"tcp://127.0.0.1:{8028}"
         )
 
     def receive(self, message: str | bytes, sender: Optional[str]) -> None:
         super().receive(message, "ClientB")
+
+
+class DummyParty(NetworkParty):
+    def __init__(self):
+        super().__init__(
+            connection_mode=ConnectionMode.OPEN,
+            uri=f"tcp://127.0.0.1:{8028}"
+        )
+
+
+    def send(self, message: str | bytes, recipient: Optional[str]) -> None:
+        print("DummyParty sending:", message, "to", recipient)   
+        ClientA.instance().stop()
+        ServerA.instance().stop()
+        ClientB.instance().start()
+        ServerB.instance().start()
+
+    def start(self):
+        pass
+
+    def stop(self):
+        pass
 
 
 def changeConnection():

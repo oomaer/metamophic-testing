@@ -28,7 +28,12 @@ import tempfile
 import subprocess
 import os
 
+
+total_grammers = 0
+current_run = 1
+
 def get_recipients():
+    global total_grammers
     with open("gen-recipients.fan") as f:
         grammar, constraints = parse(f, use_stdlib=True)
     assert grammar is not None
@@ -49,11 +54,14 @@ def get_recipients():
 
         recipients.append((recp_list_1, recp_list_2))
 
+    total_grammers = len(recipients)
     return recipients
+
     
 
+
 def covert_recipients_to_grammar(recipients):
-    
+
     with open("smtp-with-auth.fan") as f:
         grammar_str_orignal = f.read()
 
@@ -86,6 +94,10 @@ def covert_recipients_to_grammar(recipients):
         
  
 def run_fandango(grammar_path):
+    global current_run
+    print(f" ---------------------------------Curernt run: {current_run}, Total grammers: {total_grammers} --------------------------------")
+    print("-------------------------------------------------------------")
+    print("-------------------------------------------------------------")
     print(f"Running Fandango with grammar: {grammar_path}")
     with open(grammar_path) as f:
         grammar, constraints = parse(f, use_stdlib=True)
@@ -99,6 +111,7 @@ def run_fandango(grammar_path):
         print(str(solution))
         print("-------------------------------------------------------------")
     
+    current_run += 1
     # os._exit(0)
 
     
