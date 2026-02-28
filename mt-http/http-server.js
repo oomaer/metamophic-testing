@@ -1,10 +1,11 @@
 const http = require('http');
 
-port = 3001
-
+port = 3000
 const server = http.createServer((req, res) => {
   // Check if the request is a GET method and the path is '/'
   if (req.url === '/' && req.method === 'GET') {
+    console.log(`Received request on port ${port}`);
+    console.log('Headers:', req.headers);
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
       message: `Success from 3000`,

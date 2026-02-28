@@ -12,8 +12,11 @@
 # call fandango api
 
 # ======================
+
+
+from fandango import constraints
 from fandango.evolution.algorithm import Fandango, LoggerLevel
-from fandango.language.grammar import FuzzingMode
+from fandango.language.grammar import FuzzingMode, grammar
 from fandango.language.parse.parse import parse
 
 
@@ -36,20 +39,31 @@ def generate_header_pairs_efficiently(headers):
         yield [list(seq1), list(seq2)]
 
 def main():
-    headers = [
-        "Host: localhost",
-        "User-Agent: Fandango/1.0",
-        "Accept: */*"
-    ]
-    # We use a generator to process one pair at a time
-    for pair in generate_header_pairs_efficiently(headers):
-        # Process pair (e.g., send to a fuzzer or printer)
-        fandango_talk(pair)
+    # headers = [
+    #     "Host: localhost",
+    #     "User-Agent: Fandango/1.0",
+    #     "Accept: */*"
+    # ]
+
+    with open("http-multipartygrammer.fan") as f:
+        grammar, constraints = parse(f, use_stdlib=True)
+    assert grammar is not None
+    fandango = Fandango(
+        grammar=grammar,
+        constraints=constraints,
+        logger_level=LoggerLevel.INFO,
+    )
+
+    solutions = []
+    for solution in fandango.generate(mode=FuzzingMode.IO):
+        print(str(solution))
+        print("---------------------------------------------------")
+        solutions.append(solution)
 
 
 def fandango_talk(header_pair):
     # run command fandango talk with header_pair
-    print("Fandango talk with header pair:", header_pair)
+    # print("Fandango talk with header pair:", header_pair)
     # read http-multipartygrammer.fan and replace ::header_order_1:: and ::header_order_2:: with header_pair[0] and header_pair[1]
     # call fandango api to run the grammar with the replaced headers
 

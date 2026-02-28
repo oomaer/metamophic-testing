@@ -18,6 +18,7 @@
 
 from fandango import constraints
 from fandango.evolution.algorithm import Fandango, LoggerLevel
+from fandango.io.navigation.coverage_goal import CoverageGoal
 from fandango.language.grammar import FuzzingMode, grammar
 from fandango.language.parse.parse import parse
 
@@ -91,8 +92,8 @@ def covert_recipients_to_grammar(recipients):
         with tempfile.NamedTemporaryFile(delete=False, suffix=".fan", dir=temp_dir) as tmp_file:
             tmp_file.write(grammar_str.encode())
             tmp_file_path = tmp_file.name
-        # run_fandango(tmp_file_path)
-        run_fandango_from_cmd(tmp_file_path)
+        run_fandango(tmp_file_path)
+        # run_fandango_from_cmd(tmp_file_path)
 
         
  
@@ -110,11 +111,13 @@ def run_fandango(grammar_path):
         grammar=grammar,
         constraints=constraints,
         logger_level=LoggerLevel.INFO,
+        coverage_goal=CoverageGoal.STATE_INPUTS
     )
     solutions = fandango.generate(mode=FuzzingMode.IO)
     for solution in solutions:
         print(str(solution))
         print("-------------------------------------------------------------")
+        # break
     
     current_run += 1
 

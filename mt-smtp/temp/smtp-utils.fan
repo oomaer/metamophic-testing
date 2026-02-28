@@ -3,9 +3,9 @@ from typing import Optional
 from fandango.io import ConnectionMode
 
 
-class ClientA(NetworkParty):
+class Client(NetworkParty):
     def __init__(self):
-        self.serverName = "ServerA"
+        self.serverName = "Server"
         super().__init__(
             connection_mode=ConnectionMode.CONNECT,
             uri=f"tcp://localhost:{8026}"
@@ -15,7 +15,7 @@ class ClientA(NetworkParty):
     def receive(self, message: str | bytes, sender: Optional[str]) -> None:
         super().receive(message, self.serverName)
 
-class ServerA(NetworkParty):
+class Server(NetworkParty):
     def __init__(self):
         super().__init__(
             connection_mode=ConnectionMode.EXTERNAL,
@@ -24,7 +24,7 @@ class ServerA(NetworkParty):
         self.start()
 
     def receive(self, message: str | bytes, sender: Optional[str]) -> None:
-        super().receive(message, "ClientA")
+        super().receive(message, "Client")
     
 
 class ClientB(NetworkParty):
@@ -63,6 +63,12 @@ class DummyParty(NetworkParty):
             ServerA.instance().stop()
             ClientB.instance().start()
             ServerB.instance().start()
+        else:
+            print("resetting connection")
+            ClientB.instance().stop()
+            ServerB.instance().stop()
+            ClientA.instance().start()
+            ServerA.instance().start()
 
     def start(self):
         pass
