@@ -64,6 +64,7 @@ class DummyParty(NetworkParty):
             ClientB.instance().start()
             ServerB.instance().start()
 
+
     def start(self):
         pass
 

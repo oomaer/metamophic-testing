@@ -36,7 +36,7 @@ current_run = 1
 def get_recipients():
     global total_grammers
     with open("/Users/i7949486/Downloads/docker/metamorphic-testing/mt-smtp/gen-recipients.fan") as f:
-        grammar, constraints = parse(f, use_stdlib=True)
+        grammar, constraints = parse(f, use_stdlib=False)
     assert grammar is not None
     fandango = Fandango(
         grammar=grammar,
@@ -89,10 +89,10 @@ def covert_recipients_to_grammar(recipients):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         temp_dir = os.path.join(script_dir, "temp")
         os.makedirs(temp_dir, exist_ok=True)
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".fan", dir=temp_dir) as tmp_file:
+        with tempfile.NamedTemporaryFile(delete=True, suffix=".fan", dir=temp_dir) as tmp_file:
             tmp_file.write(grammar_str.encode())
             tmp_file_path = tmp_file.name
-        run_fandango(tmp_file_path)
+            run_fandango(tmp_file_path)
         # run_fandango_from_cmd(tmp_file_path)
 
         
@@ -105,7 +105,7 @@ def run_fandango(grammar_path):
     print("-------------------------------------------------------------")
     print(f"Running Fandango with grammar: {grammar_path}")
     with open(grammar_path) as f:
-        grammar, constraints = parse(f, use_stdlib=True)
+        grammar, constraints = parse(f, use_stdlib=False)
     assert grammar is not None
     fandango = Fandango(
         grammar=grammar,

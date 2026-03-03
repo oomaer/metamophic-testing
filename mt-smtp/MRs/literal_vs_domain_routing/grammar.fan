@@ -1,4 +1,5 @@
-include ("smtp-utils.fan")
+
+include ("/Users/i7949486/Downloads/docker/metamorphic-testing/mt-smtp/smtp-utils.fan")
 
 <start> ::= <Interation1> <ChangeConnection> <Interation2> 
 
@@ -21,8 +22,7 @@ include ("smtp-utils.fan")
 
 <exchange_send_email_A> ::= <ClientA:request_mail_from><ServerA:response_mail_from><rcpt_sequence_A><ClientA:request_data><ServerA:response_data><ClientA:email_content><ServerA:response_emailA_sent>
 
-# <rcpt_sequence_A> ::= <ClientA:request_rcpt_to_1><ServerA:response_rcpt_to><ClientA:request_rcpt_to_2><ServerA:response_rcpt_to><ClientA:request_rcpt_to_3><ServerA:response_rcpt_to>
-<rcpt_sequence_A> ::= ->Generated from fuzzer and replaced here with python script->
+<rcpt_sequence_A> ::= <ClientA:request_rcpt_to_1><ServerA:response_rcpt_to><ClientA:request_rcpt_to_2><ServerA:response_rcpt_to><ClientA:request_rcpt_to_3><ServerA:response_rcpt_to>
 
 <exchange_quit_A> ::= <ClientA:request_quit><ServerA:response_quit>
 
@@ -32,8 +32,7 @@ include ("smtp-utils.fan")
 
 <exchange_send_email_B> ::= <ClientB:request_mail_from><ServerB:response_mail_from><rcpt_sequence_B><ClientB:request_data><ServerB:response_data><ClientB:email_content><ServerB:response_emailB_sent>
 
-# <rcpt_sequence_B> ::= <ClientB:request_rcpt_to_2><ServerB:response_rcpt_to><ClientB:request_rcpt_to_1><ServerB:response_rcpt_to><ClientB:request_rcpt_to_3><ServerB:response_rcpt_to>
-<rcpt_sequence_B> ::= ->Generated from fuzzer and replaced here with python script->
+<rcpt_sequence_B> ::= <ClientB:request_rcpt_to_2><ServerB:response_rcpt_to><ClientB:request_rcpt_to_1><ServerB:response_rcpt_to><ClientB:request_rcpt_to_3><ServerB:response_rcpt_to>
 
 <exchange_quit_B> ::= <ClientB:request_quit><ServerB:response_quit>
 
@@ -54,9 +53,9 @@ include ("smtp-utils.fan")
 <request_mail_from> ::= 'MAIL FROM:<sender@example.com>\r\n'
 <response_mail_from> ::= r"250 .+\r\n"
 
-# <request_rcpt_to_1> ::= 'RCPT TO:<recipient1@example.com>\r\n'
-# <request_rcpt_to_2> ::= 'RCPT TO:<recipient2@example.com>\r\n'
-# <request_rcpt_to_3> ::= 'RCPT TO:<recipient3@example.com>\r\n'
+<request_rcpt_to_1> ::= 'RCPT TO:<recipient1@example.com>\r\n'
+<request_rcpt_to_2> ::= 'RCPT TO:<recipient2@example.com>\r\n'
+<request_rcpt_to_3> ::= 'RCPT TO:<recipient3@example.com>\r\n'
 <response_rcpt_to> ::= r"250 .+\r\n"
 
 <request_data> ::= 'DATA\r\n'
