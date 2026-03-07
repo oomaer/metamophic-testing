@@ -3,6 +3,31 @@ from fandango.evolution.algorithm import Fandango, LoggerLevel
 from fandango.language.grammar import FuzzingMode
 from fandango.language.parse.parse import parse
 import os
+import io
+import sys
+
+
+class TeeStream:
+    """Stream that writes to both original stdout and captures output."""
+    def __init__(self, original_stdout):
+        self.original = original_stdout
+        self.captured = io.StringIO()
+    
+    def write(self, data):
+        self.original.write(data)
+        self.captured.write(data)
+    
+    def flush(self):
+        self.original.flush()
+    
+    def getvalue(self):
+        return self.captured.getvalue()
+    
+    def reset(self):
+        """Reset captured buffer and return previous content."""
+        content = self.captured.getvalue()
+        self.captured = io.StringIO()
+        return content
 
 
 def run_fandango(grammar_path):
@@ -25,29 +50,43 @@ def run_fandango(grammar_path):
     )
 
     solutions = []
-    violations = []
+    violations = {}  # {solution_index: [violations]}
     
-    for solution in fandango.generate(mode=FuzzingMode.IO):
-        solutions.append(solution)
-
-    fandango = Fandango(
-        grammar=grammar,
-        constraints=constraints,
-        logger_level=LoggerLevel.INFO,
-    )
-    global_variables, local_variables = fandango.grammar.get_spec_env()
-    global_variables['do_ignore_response_constraints'] = False
-    for solution in solutions:
-        gen = GeneratorWithReturn(fandango.evaluator.evaluate_individual(solution))
-        gen.collect()
-        fitness, failing_trees, suggestions = gen.return_value
-        if fitness < 1.0:
-            print(f"[VIOLATION] Found a violation for solution: {failing_trees}")
- 
-        print("-------------------------------------------------------------")
+    # Capture stdout during generation to detect violation logs
+    old_stdout = sys.stdout
+    tee_stream = TeeStream(old_stdout)
+    sys.stdout = tee_stream
+    
+    try:
+        for solution in fandango.generate(mode=FuzzingMode.IO):
+            solution_index = len(solutions)
+            solutions.append(solution)
+            
+            # Extract violations for this solution from captured output
+            captured_output = tee_stream.reset()
+            solution_violations = []
+            for line in captured_output.split('\n'):
+                if '[VIOLATION]' in line:
+                    solution_violations.append(line.strip())
+            
+            if solution_violations:
+                violations[f"solution{solution_index + 1}"] = solution_violations
+            
+            print("-------------------------------------------------------------")
+    finally:
+        sys.stdout = old_stdout
         
     print("=" * 60)
     print(f"Total test cases generated: {len(solutions)}")
+    if violations:
+        print(f"Solutions with violations: {len(violations)}")
+        print("Violations per solution:")
+        for sol_key, sol_violations in violations.items():
+            print(f"  {sol_key}:")
+            for v in sol_violations:
+                print(f"    - {v}")
+    else:
+        print("No violations detected for any of the test cases")
     print("=" * 60)
 
 

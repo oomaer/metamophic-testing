@@ -41,8 +41,12 @@ include ("/Users/i7949486/Downloads/docker/metamorphic-testing/mt-smtp/smtp-util
 <exchange_send_email_B> ::= <ClientB:request_mail_from><ServerB:response_mail_from><rcpt_repeated_B><ClientB:request_data><ServerB:response_data><ClientB:email_content><ServerB:response_emailB_sent>
 
 # Repeat the same recipient two or more times (rcpt{2,})
-<rcpt_repeated_B> ::= <single_rcpt_B><single_rcpt_B> | <single_rcpt_B><single_rcpt_B><single_rcpt_B>
-<more_rcpt_B> ::= <single_rcpt_B> | <single_rcpt_B><more_rcpt_B>
+# Multiple alternatives for different k-paths
+<rcpt_repeated_B> ::= <rcpt_2x> | <rcpt_3x> | <rcpt_4x> | <rcpt_5x>
+<rcpt_2x> ::= <single_rcpt_B><single_rcpt_B>
+<rcpt_3x> ::= <single_rcpt_B><single_rcpt_B><single_rcpt_B>
+<rcpt_4x> ::= <single_rcpt_B><single_rcpt_B><single_rcpt_B><single_rcpt_B>
+<rcpt_5x> ::= <single_rcpt_B><single_rcpt_B><single_rcpt_B><single_rcpt_B><single_rcpt_B>
 
 <single_rcpt_B> ::= <ClientB:request_rcpt_to><ServerB:response_rcpt_to_repeated>
 
@@ -78,21 +82,20 @@ include ("/Users/i7949486/Downloads/docker/metamorphic-testing/mt-smtp/smtp-util
 <request_data> ::= 'DATA\r\n'
 <response_data> ::= r"354 .+\r\n"
 
-<email_content> ::= 'Subject: Test Email\r\n\r\nThis is a test email for repeated recipient testing.\r\n.\r\n'
+<email_content> ::= <email_variant_1> | <email_variant_2>
+<email_variant_1> ::= 'Subject: Test Email\r\n\r\nThis is a test email for repeated recipient testing.\r\n.\r\n'
+<email_variant_2> ::= 'Subject: Metamorphic Test\r\n\r\nTesting repeated recipient behavior.\r\n.\r\n'
 <response_emailA_sent> ::= r"250 .+\r\n"
 <response_emailB_sent> ::= r"250 .+\r\n"
 
 <request_quit> ::= 'QUIT\r\n'
 <response_quit> ::= r"221 .+\r\n"
 
-do_ignore_response_constraints = True
+
 where validateResponses(<response_emailA_sent>, <response_emailB_sent>) and validateRcptResponse(<response_rcpt_to>) and validateRcptResponse(<response_rcpt_to_repeated>)
 
 
 def validateRcptResponse(response):
-    global do_ignore_response_constraints
-    if do_ignore_response_constraints:
-        return True
     """Verify each RCPT TO was accepted (250)"""
     # Convert to string first (handles DerivationTree, bytes, etc.)
     response = str(response)
@@ -101,15 +104,11 @@ def validateRcptResponse(response):
         response = response[2:-1]
     code = response[:3]
     if code != '250':
-        print(f"[FAIL] RCPT TO rejected: {response.strip()}")
-        return False
+        print(f"[VIOLATION] RCPT TO rejected: {response.strip()}")
     return True
 
 
 def validateResponses(responseA, responseB):
-    global do_ignore_response_constraints
-    if do_ignore_response_constraints:
-        return True  # Skip validation if flag is set
     # Convert to string first
     responseA = str(responseA)
     responseB = str(responseB)
@@ -129,14 +128,11 @@ def validateResponses(responseA, responseB):
     
     if a_success and b_success:
         print(f"[PASS] Both succeeded with 250")
-        return True
     elif a_success and not b_success:
-        print(f"[FAIL] Single recipient succeeded but repeated recipient failed: {responseB.strip()}")
-        return False
+        print(f"[VIOLATION] Single recipient succeeded but repeated recipient failed: {responseB.strip()}")
     elif not a_success and b_success:
-        print(f"[FAIL] Single recipient failed but repeated recipient succeeded: {responseA.strip()}")
-        return False
+        print(f"[VIOLATION] Single recipient failed but repeated recipient succeeded: {responseA.strip()}")
     else:
         # Both failed - check if same error
-        print(f"[INFO] Both failed: A={codeA}, B={codeB}")
-        return False
+        print(f"[VIOLATION] Both failed: A={codeA}, B={codeB}")
+    return True
