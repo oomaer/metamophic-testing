@@ -42,7 +42,7 @@ def parse_test_output(log_file):
             if match:
                 current_solution['request_A'] = match.group(1)
 
-        elif 'ServerA: <response_A>' in line:
+        elif 'ServerA:' in line and '<resp_A_' in line and "'" in line:
             match = re.search(r"'(.+)'$", line)
             if match:
                 current_solution['response_A'] = match.group(1)
@@ -52,7 +52,7 @@ def parse_test_output(log_file):
             if match:
                 current_solution['request_B'] = match.group(1)
 
-        elif 'ServerB: <response_B>' in line:
+        elif 'ServerB:' in line and '<resp_B_' in line and "'" in line:
             match = re.search(r"'(.+)'$", line)
             if match:
                 current_solution['response_B'] = match.group(1)
@@ -101,6 +101,12 @@ def parse_request(raw_request):
 
 def parse_response(raw_response):
     """Parse raw response string into components."""
+    if not raw_response:
+        return {
+            'status_code': '',
+            'body': '',
+        }
+
     match = re.match(r'HTTP/[\d.]+ (\d+)', raw_response.replace('\\r\\n', '\n'))
     status_code = match.group(1) if match else ""
 
@@ -134,7 +140,8 @@ def main():
 
     # Header
     output.append(c("=" * 100, Colors.CYAN))
-    output.append(c(" ALL 25 TEST CASE CONFIGURATIONS", Colors.BOLD + Colors.CYAN))
+    output.append(c(" CONNECTION HEADER VARIANTS - ALL TEST CASES", Colors.BOLD + Colors.CYAN))
+    output.append(c(" RFC 7230: HTTP Connection Header", Colors.CYAN))
     output.append(c("=" * 100, Colors.CYAN))
     output.append("")
     output.append(f"Total test cases: {c(str(len(solutions)), Colors.GREEN + Colors.BOLD)}")
@@ -258,6 +265,22 @@ def main():
 
         output.append(c(f"└{'─' * 98}┘", Colors.CYAN))
         output.append("")
+
+    # Final summary
+    output.append(c("=" * 100, Colors.CYAN))
+    output.append(c(" FINAL SUMMARY", Colors.BOLD + Colors.CYAN))
+    output.append(c("=" * 100, Colors.CYAN))
+    output.append("")
+
+    passed = sum(1 for sol in solutions if parse_response(sol['response_A']).get('body', '') == parse_response(sol['response_B']).get('body', ''))
+    failed = len(solutions) - passed
+
+    output.append(f"   Total test cases:  {c(str(len(solutions)), Colors.BOLD)}")
+    output.append(f"   Passed:            {c(str(passed), Colors.GREEN + Colors.BOLD)}")
+    output.append(f"   Failed:            {c(str(failed), Colors.RED + Colors.BOLD if failed > 0 else Colors.GREEN)}")
+    output.append("")
+    output.append(f"   RFC 7230 Compliance: {c('VERIFIED' if failed == 0 else 'ISSUES FOUND', Colors.GREEN + Colors.BOLD if failed == 0 else Colors.RED + Colors.BOLD)}")
+    output.append("")
 
     # Print and save
     result_text = '\n'.join(output)

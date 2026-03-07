@@ -112,6 +112,10 @@ Some tests (like `smtp.py`) dynamically generate grammar by:
 
 To generate more test-cases / solutions, Fandango uses k-paths. It works in a tree that if unique non-terminals are visited or not. Make use of it to generate more test cases.
 
+## Mutation Testing 
+For each protocol, we will perform mutation testing, we will plant seeded faults/bugs in our test target and check if our framework catches those bugs. The mutation testing is not of entire protocol but of a single MR, and they must be related to the MR and be meaningful according to the MR. 
+
+
 ## Protocols Supported
 
 - `mt-smtp/` - SMTP with AUTH LOGIN (primary, most developed)

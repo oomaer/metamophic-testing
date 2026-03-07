@@ -75,10 +75,10 @@ def run_fandango(grammar_path, log_file_path):
 
     log_print(f"Running Fandango with grammar: {grammar_path}")
     log_print("=" * 80)
-    log_print("Metamorphic Test: Connection Header Variants (RFC 7230)")
-    log_print("A: HTTP request with 'Connection: keep-alive'")
-    log_print("B: HTTP request with 'Connection: close'")
-    log_print("Relation: Response body and status code must be identical")
+    log_print("Metamorphic Test: Range Request Reconstruction (RFC 7233)")
+    log_print("A: Full GET request (complete content)")
+    log_print("B: Two partial GET requests with Range headers, concatenated")
+    log_print("Relation: Concatenated partial responses must equal full response body")
     log_print("=" * 80)
 
     with open(grammar_path) as f:
@@ -151,7 +151,7 @@ def run_fandango(grammar_path, log_file_path):
             for v in sol_violations:
                 log_print(f"    - {v}")
     else:
-        log_print("\nAll solutions passed - Connection header invariance holds!")
+        log_print("\nAll solutions passed - Range request reconstruction works correctly!")
 
     log_print("")
     log_print("TIMING:")

@@ -1,37 +1,27 @@
 [96m====================================================================================================[0m
-[1m[96m ALL 25 TEST CASE CONFIGURATIONS[0m
+[1m[96m CONNECTION HEADER VARIANTS - ALL TEST CASES[0m
+[96m RFC 7230: HTTP Connection Header[0m
 [96m====================================================================================================[0m
 
-Total test cases: [92m[1m25[0m
+Total test cases: [92m[1m14[0m
 
 [2m----------------------------------------------------------------------------------------------------[0m
  [1mTC#[0m  [1mPath[0m  [1mUser-Agent[0m  [1mAccept[0m        [1mStatus[0m  [1mResponse Body[0m
 [2m----------------------------------------------------------------------------------------------------[0m
-    [96m[1m#01[0m  [94m/[0m          [95mFandango[0m        [93m*/*[0m                  [92m200[0m      [2m{"message":"Success","status":200}[0m
+    [96m[1m#01[0m  [94m/[0m          [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"message":"Success","status":200}[0m
     [96m[1m#02[0m  [94m/[0m          [95mMozilla[0m         [93mtext/html[0m            [92m200[0m      [2m{"message":"Success","status":200}[0m
-    [96m[1m#03[0m  [94m/[0m          [95mMozilla[0m         [93mtext/html[0m            [92m200[0m      [2m{"message":"Success","status":200}[0m
+    [96m[1m#03[0m  [94m/data[0m      [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"data":"test data","status":200}[0m
     [96m[1m#04[0m  [94m/[0m          [95mMozilla[0m         [93mtext/html[0m            [92m200[0m      [2m{"message":"Success","status":200}[0m
     [96m[1m#05[0m  [94m/data[0m      [95mFandango[0m        [93m*/*[0m                  [92m200[0m      [2m{"data":"test data","status":200}[0m
-    [96m[1m#06[0m  [94m/[0m          [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"message":"Success","status":200}[0m
+    [96m[1m#06[0m  [94m/[0m          [95mFandango[0m        [93m*/*[0m                  [91m[0m         [2m[0m
     [96m[1m#07[0m  [94m/data[0m      [95mFandango[0m        [93m*/*[0m                  [92m200[0m      [2m{"data":"test data","status":200}[0m
-    [96m[1m#08[0m  [94m/[0m          [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"message":"Success","status":200}[0m
-    [96m[1m#09[0m  [94m/data[0m      [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"data":"test data","status":200}[0m
+    [96m[1m#08[0m  [94m/[0m          [95mMozilla[0m         [93mtext/html[0m            [92m200[0m      [2m{"message":"Success","status":200}[0m
+    [96m[1m#09[0m  [94m/[0m          [95mFandango[0m        [93m*/*[0m                  [91m[0m         [2m[0m
     [96m[1m#10[0m  [94m/data[0m      [95mFandango[0m        [93m*/*[0m                  [92m200[0m      [2m{"data":"test data","status":200}[0m
-    [96m[1m#11[0m  [94m/data[0m      [95mFandango[0m        [93m*/*[0m                  [92m200[0m      [2m{"data":"test data","status":200}[0m
-    [96m[1m#12[0m  [94m/[0m          [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"message":"Success","status":200}[0m
+    [96m[1m#11[0m  [94m/data[0m      [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"data":"test data","status":200}[0m
+    [96m[1m#12[0m  [94m/data[0m      [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"data":"test data","status":200}[0m
     [96m[1m#13[0m  [94m/data[0m      [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"data":"test data","status":200}[0m
-    [96m[1m#14[0m  [94m/[0m          [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"message":"Success","status":200}[0m
-    [96m[1m#15[0m  [94m/[0m          [95mMozilla[0m         [93mtext/html[0m            [92m200[0m      [2m{"message":"Success","status":200}[0m
-    [96m[1m#16[0m  [94m/[0m          [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"message":"Success","status":200}[0m
-    [96m[1m#17[0m  [94m/[0m          [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"message":"Success","status":200}[0m
-    [96m[1m#18[0m  [94m/[0m          [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"message":"Success","status":200}[0m
-    [96m[1m#19[0m  [94m/[0m          [95mFandango[0m        [93m*/*[0m                  [92m200[0m      [2m{"message":"Success","status":200}[0m
-    [96m[1m#20[0m  [94m/data[0m      [95mFandango[0m        [93m*/*[0m                  [92m200[0m      [2m{"data":"test data","status":200}[0m
-    [96m[1m#21[0m  [94m/data[0m      [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"data":"test data","status":200}[0m
-    [96m[1m#22[0m  [94m/data[0m      [95mTestClient[0m      [93mapplication/json[0m     [92m200[0m      [2m{"data":"test data","status":200}[0m
-    [96m[1m#23[0m  [94m/data[0m      [95mFandango[0m        [93m*/*[0m                  [92m200[0m      [2m{"data":"test data","status":200}[0m
-    [96m[1m#24[0m  [94m/[0m          [95mMozilla[0m         [93mtext/html[0m            [92m200[0m      [2m{"message":"Success","status":200}[0m
-    [96m[1m#25[0m  [94m/data[0m      [95mMozilla[0m         [93mtext/html[0m            [92m200[0m      [2m{"data":"test data","status":200}[0m
+    [96m[1m#14[0m  [94m/data[0m      [95mMozilla[0m         [93mtext/html[0m            [92m200[0m      [2m{"data":"test data","status":200}[0m
 [2m----------------------------------------------------------------------------------------------------[0m
 
 [96m====================================================================================================[0m
@@ -45,8 +35,8 @@ Total test cases: [92m[1m25[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
 [96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
-[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
+[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
+[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
 [96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
@@ -59,8 +49,8 @@ Total test cases: [92m[1m25[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
 [96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
-[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
+[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
+[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
 [96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
@@ -107,29 +97,29 @@ Total test cases: [92m[1m25[0m
 [96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
 [96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
+[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mMozilla/5.0[0m                                                                     [96m│[0m
-[96m│[0m   Accept:     [93mtext/html[0m                                                                       [96m│[0m
+[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
+[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
 [96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
 [96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
+[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
+[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mMozilla/5.0[0m                                                                     [96m│[0m
-[96m│[0m   Accept:     [93mtext/html[0m                                                                       [96m│[0m
+[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
+[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
 [96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
 [96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
+[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
 [96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
@@ -205,13 +195,13 @@ Total test cases: [92m[1m25[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
 [96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
+[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
+[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
 [96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
+[96m│[0m   Status:     [92m[0m                                                                                [96m│[0m
+[96m│[0m   Body:       [2m[0m                                                                                [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
@@ -219,13 +209,13 @@ Total test cases: [92m[1m25[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
 [96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
+[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
+[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
 [96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
+[96m│[0m   Status:     [92m[0m                                                                                [96m│[0m
+[96m│[0m   Body:       [2m[0m                                                                                [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
 [96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
@@ -269,8 +259,8 @@ Total test cases: [92m[1m25[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
 [96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
+[96m│[0m   User-Agent: [95mMozilla/5.0[0m                                                                     [96m│[0m
+[96m│[0m   Accept:     [93mtext/html[0m                                                                       [96m│[0m
 [96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
@@ -283,8 +273,8 @@ Total test cases: [92m[1m25[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
 [96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
+[96m│[0m   User-Agent: [95mMozilla/5.0[0m                                                                     [96m│[0m
+[96m│[0m   Accept:     [93mtext/html[0m                                                                       [96m│[0m
 [96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
@@ -299,29 +289,29 @@ Total test cases: [92m[1m25[0m
 [96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
 [96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
+[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
+[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
+[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
 [96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
+[96m│[0m   Status:     [92m[0m                                                                                [96m│[0m
+[96m│[0m   Body:       [2m[0m                                                                                [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
+[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
+[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
+[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
 [96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
+[96m│[0m   Status:     [92m[0m                                                                                [96m│[0m
+[96m│[0m   Body:       [2m[0m                                                                                [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
 [96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
@@ -365,8 +355,8 @@ Total test cases: [92m[1m25[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
 [96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
-[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
+[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
+[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
 [96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
@@ -379,8 +369,8 @@ Total test cases: [92m[1m25[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
 [96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
-[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
+[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
+[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
 [96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
@@ -395,7 +385,7 @@ Total test cases: [92m[1m25[0m
 [96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
 [96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
+[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
 [96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
 [96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
@@ -403,13 +393,13 @@ Total test cases: [92m[1m25[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
 [96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
+[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
+[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
 [96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
 [96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
@@ -417,7 +407,7 @@ Total test cases: [92m[1m25[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
 [96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
+[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
 [96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
@@ -459,358 +449,6 @@ Total test cases: [92m[1m25[0m
 [96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
 [96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
 [96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #15[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mMozilla/5.0[0m                                                                     [96m│[0m
-[96m│[0m   Accept:     [93mtext/html[0m                                                                       [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mMozilla/5.0[0m                                                                     [96m│[0m
-[96m│[0m   Accept:     [93mtext/html[0m                                                                       [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #16[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #17[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #18[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #19[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
-[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
-[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #20[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
-[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
-[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #21[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #22[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mTestClient/2.0[0m                                                                  [96m│[0m
-[96m│[0m   Accept:     [93mapplication/json[0m                                                                [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #23[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
-[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mFandango/1.0[0m                                                                    [96m│[0m
-[96m│[0m   Accept:     [93m*/*[0m                                                                             [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"data":"test data","status":200}[0m                                               [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #24[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mMozilla/5.0[0m                                                                     [96m│[0m
-[96m│[0m   Accept:     [93mtext/html[0m                                                                       [96m│[0m
-[96m│[0m   Connection: [92mkeep-alive[0m                                                                      [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[92m[1m RESPONSE A:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[2m──────────────────────────────────────────────────────────────────────────────────────────────────[0m[96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m REQUEST B (close):[0m                                                                              [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
-[96m│[0m   Path:       [94m/[0m                                                                               [96m│[0m
-[96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
-[96m│[0m   User-Agent: [95mMozilla/5.0[0m                                                                     [96m│[0m
-[96m│[0m   Accept:     [93mtext/html[0m                                                                       [96m│[0m
-[96m│[0m   Connection: [91mclose[0m                                                                           [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m[91m[1m RESPONSE B:[0m                                                                                     [96m│[0m
-[96m│[0m   Status:     [92m200[0m                                                                                [96m│[0m
-[96m│[0m   Body:       [2m{"message":"Success","status":200}[0m                                              [96m│[0m
-[96m│[0m                                                                                                  [96m│[0m
-[96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
-[96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
-
-[96m┌──────────────────────────────────────────────────────────────────────────────────────────────────┐[0m
-[96m[1m│ TEST CASE #25[0m                                                                                     [96m│[0m
-[96m├──────────────────────────────────────────────────────────────────────────────────────────────────┤[0m
-[96m│[0m[92m[1m REQUEST A (keep-alive):[0m                                                                         [96m│[0m
-[96m│[0m   Method:     [97mGET[0m                                                                                [96m│[0m
 [96m│[0m   Path:       [94m/data[0m                                                                           [96m│[0m
 [96m│[0m   Version:    [97mHTTP/1.1[0m                                                                        [96m│[0m
 [96m│[0m   User-Agent: [95mMozilla/5.0[0m                                                                     [96m│[0m
@@ -837,3 +475,13 @@ Total test cases: [92m[1m25[0m
 [96m│[0m                                                                                                  [96m│[0m
 [96m│[0m Result: [92m[1m✓ PASS - Bodies match[0m                                                                   [96m│[0m
 [96m└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0m
+
+[96m====================================================================================================[0m
+[1m[96m FINAL SUMMARY[0m
+[96m====================================================================================================[0m
+
+   Total test cases:  [1m14[0m
+   Passed:            [92m[1m14[0m
+   Failed:            [92m0[0m
+
+   RFC 7230 Compliance: [92m[1mVERIFIED[0m
